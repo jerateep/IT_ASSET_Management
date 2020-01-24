@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.DirectoryServices.AccountManagement;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -14,7 +15,7 @@ namespace EntityProject
     public partial class frmAdd : Form
     {
         myDatabaseEntities db = new myDatabaseEntities();
-        string imgLoc = "";
+        string imgLoc = "", strOU;
         byte[] img = null;
         public frmAdd()
         {
@@ -25,7 +26,7 @@ namespace EntityProject
         {
             StringEmpty();
             LoadType();
-            LoadLocation();
+            //LoadLocation();
             LoadMonitor();
             LoadStatus();
             LoadDepartment();
@@ -60,6 +61,7 @@ namespace EntityProject
         public void LoadSupplier()
         {
             var ds = (from T in db.RFS_Supplier
+                      orderby T.sup_name
                       select new
                       {
                           T.sup_id,
@@ -73,19 +75,20 @@ namespace EntityProject
 
         public void LoadDepartment()
         {
-            var ds = (from T in db.RFS_Department
+            var ds = (from T in db.RFS_Department_2
+                      orderby T.dep_name_2
                       select new
                       {
-                          T.dep_id,
-                          T.dep_name
+                          T.dep_id_2,
+                          T.dep_name_2
                       }
                       ).ToList();
             cbDepart.DataSource = ds;
-            cbDepart.DisplayMember = "dep_name";
-            cbDepart.ValueMember = "dep_id";
+            cbDepart.DisplayMember = "dep_name_2";
+            cbDepart.ValueMember = "dep_id_2";
         }
 
-        public void LoadLocation()
+        /*public void LoadLocation()
         {
             var ds = (from T in db.RFS_Department_2
                       select new
@@ -97,7 +100,7 @@ namespace EntityProject
             cbLocation.DataSource = ds;
             cbLocation.DisplayMember = "dep_name_2";
             cbLocation.ValueMember = "dep_id_2";
-        }
+        }*/
 
         public void LoadType()
         {
@@ -153,22 +156,42 @@ namespace EntityProject
         {
             try
             {
-                var ds = (from T in db.RFS_Employee
-                          where T.dep_id == "" + cbDepart.SelectedValue + ""
+                var ds = (from T in db.RFS_Department_2
+                          where T.dep_name_2 == "" + cbDepart.Text + ""
                           select new
                           {
-                              T.em_id,
-                              T.em_name_th
-                          }
-                          ).ToList();
-                cbUser.DataSource = ds;
-                cbUser.DisplayMember = "em_name_th";
-                cbUser.ValueMember = "em_id";
+                              T.dep_floor_2
+                          }).First();
+                strOU = ds.dep_floor_2;
+
             }
             catch (Exception)
             {
                 return;
             }
+        }
+
+        public void GetAD()
+        {
+            this.cbUser.Items.Clear();
+            try
+            {
+                PrincipalContext AD = new PrincipalContext(ContextType.Domain, "rfs.local", strOU);
+                UserPrincipal u = new UserPrincipal(AD);
+                u.Enabled = true;
+                PrincipalSearcher search = new PrincipalSearcher(u);
+                foreach (UserPrincipal result in search.FindAll())
+                {
+                    if (result.DisplayName != null)
+                    {
+                        cbUser.Items.Add(result.DisplayName);
+                    }
+                }
+            }
+            catch (Exception)
+            {
+            }
+
         }
 
         public void SearchModelByType()
@@ -196,14 +219,8 @@ namespace EntityProject
 
         public void StringEmpty()
         {
-            this.txtAssetId.Text = string.Empty;
             this.txtIP.Text = string.Empty;
             this.txtRemark.Text = string.Empty;
-            this.txtServiceTag.Text = string.Empty;
-            this.txtSpec.Text = string.Empty;
-            this.cbDepart.Text = string.Empty;
-            this.cbLocation.Text = string.Empty;
-            this.cbModel.Text = string.Empty;
             this.cbMonitor.Text = string.Empty;
             this.cbStatus.Text = string.Empty;
             this.cbType.Text = string.Empty;
@@ -231,7 +248,7 @@ namespace EntityProject
                 string strServiceTag = this.txtServiceTag.Text;
                 string strModel = this.cbModel.SelectedValue.ToString();
                 string strSpec = this.txtSpec.Text;
-                string strLocation = this.cbLocation.SelectedValue.ToString();
+                string strLocation = this.cbDepart.SelectedValue.ToString();
                 string strIP = this.txtIP.Text;
                 string strRemark = this.txtRemark.Text;
                 string strStatus = this.cbStatus.SelectedValue.ToString();
@@ -244,7 +261,7 @@ namespace EntityProject
                 {
                     strMonitor = null;
                 }
-                string strUser = this.cbUser.SelectedValue.ToString();
+                string strUser = this.cbUser.Text;
                 string strSupplier = this.cbSupplier.SelectedValue.ToString();
                 DateTime strWarrantyStart = DateTime.Parse(dtStart.Text);
                 DateTime strWarrantyEnd = DateTime.Parse(dtEnd.Text);
@@ -272,10 +289,10 @@ namespace EntityProject
                         model_id = strModel,
                         processor = strSpec,
                         ip = strIP,
-                        dep_id_2 = strLocation,
+                        dep_id = strLocation,
                         status = strRemark,
                         asset_list_m = strMonitor,
-                        em_id = strUser,
+                        emp_name = strUser,
                         sup_id = strSupplier,
                         start_date = strWarrantyStart,
                         end_date = strWarrantyEnd,
@@ -285,7 +302,8 @@ namespace EntityProject
                     db.SaveChanges();
                     MessageBox.Show("Pass");
                     ChkMonitor();
-                    this.Close();
+                    //this.Close();
+                    StringEmpty();
                 }
             }
             catch (Exception)
@@ -303,6 +321,7 @@ namespace EntityProject
         private void cbDepart_SelectedIndexChanged(object sender, EventArgs e)
         {
             SearchEmployeeByDepart();
+            GetAD();
         }
 
         private void btnBrowse_Click(object sender, EventArgs e)
