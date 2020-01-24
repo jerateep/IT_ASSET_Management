@@ -1,0 +1,1537 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="myDatabaseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="RFS_Activate">
+          <Key>
+            <PropertyRef Name="Activate_id" />
+          </Key>
+          <Property Name="Activate_id" Type="int" Nullable="false" />
+          <Property Name="Activate_name" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="RFS_Asset">
+          <Key>
+            <PropertyRef Name="asset_list" />
+          </Key>
+          <Property Name="asset_list" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="service_tag" Type="varchar" MaxLength="50" />
+          <Property Name="model_id" Type="varchar" MaxLength="20" />
+          <Property Name="processor" Type="varchar" MaxLength="255" />
+          <Property Name="warranty_year" Type="int" />
+          <Property Name="start_date" Type="date" />
+          <Property Name="end_date" Type="date" />
+          <Property Name="status" Type="varchar" MaxLength="255" />
+          <Property Name="em_id" Type="varchar" MaxLength="15" />
+          <Property Name="sup_id" Type="varchar" MaxLength="50" />
+          <Property Name="dep_id_2" Type="varchar" MaxLength="50" />
+          <Property Name="IMEI" Type="varchar" MaxLength="50" />
+          <Property Name="user_insert" Type="varchar" MaxLength="50" />
+          <Property Name="user_update" Type="varchar" MaxLength="50" />
+          <Property Name="date_insert" Type="datetime" />
+          <Property Name="date_update" Type="datetime" />
+          <Property Name="img_id" Type="varchar" MaxLength="50" />
+          <Property Name="asset_list_m" Type="varchar" MaxLength="50" />
+          <Property Name="ip" Type="varchar" MaxLength="15" />
+          <Property Name="Activate_id" Type="int" />
+          <Property Name="img" Type="image" />
+        </EntityType>
+        <EntityType Name="RFS_Asset_monitor">
+          <Key>
+            <PropertyRef Name="asset_list_m" />
+          </Key>
+          <Property Name="asset_list_m" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="model_id_m" Type="varchar" MaxLength="20" />
+          <Property Name="monitor_id" Type="varchar" MaxLength="50" />
+          <Property Name="warranty_year" Type="int" />
+          <Property Name="start_date" Type="date" />
+          <Property Name="end_date" Type="date" />
+          <Property Name="status" Type="varchar" MaxLength="255" />
+          <Property Name="sup_id" Type="varchar" MaxLength="50" />
+          <Property Name="user_insert" Type="varchar" MaxLength="50" />
+          <Property Name="user_update" Type="varchar" MaxLength="50" />
+          <Property Name="date_insert" Type="datetime" />
+          <Property Name="date_update" Type="datetime" />
+          <Property Name="img_id" Type="varchar" MaxLength="50" />
+          <Property Name="check_status" Type="varchar" MaxLength="1" />
+          <Property Name="Activate_id" Type="int" />
+          <Property Name="img" Type="image" />
+        </EntityType>
+        <EntityType Name="RFS_Asset_Software">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="asset_list" Type="varchar" MaxLength="50" />
+          <Property Name="software_id" Type="varchar" MaxLength="50" />
+          <Property Name="as_detail" Type="text" />
+        </EntityType>
+        <EntityType Name="RFS_Department">
+          <Key>
+            <PropertyRef Name="dep_id" />
+          </Key>
+          <Property Name="dep_id" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="dep_name" Type="varchar" MaxLength="50" />
+          <Property Name="dep_floor" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="RFS_Department_2">
+          <Key>
+            <PropertyRef Name="dep_id_2" />
+          </Key>
+          <Property Name="dep_id_2" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="dep_name_2" Type="varchar" MaxLength="50" />
+          <Property Name="dep_floor_2" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="RFS_Employee">
+          <Key>
+            <PropertyRef Name="em_id" />
+          </Key>
+          <Property Name="em_id" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="em_name_th" Type="varchar" MaxLength="50" />
+          <Property Name="em_name_eng" Type="varchar" MaxLength="50" />
+          <Property Name="em_position" Type="varchar" MaxLength="100" />
+          <Property Name="dep_id" Type="varchar" MaxLength="50" />
+          <Property Name="em_level" Type="varchar" MaxLength="50" />
+          <Property Name="em_start" Type="date" />
+          <Property Name="user_insert" Type="varchar" MaxLength="50" />
+          <Property Name="user_update" Type="varchar" MaxLength="50" />
+          <Property Name="date_insert" Type="datetime" />
+          <Property Name="date_update" Type="datetime" />
+        </EntityType>
+        <EntityType Name="RFS_EventLog">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="asset_id" Type="varchar" MaxLength="50" />
+          <Property Name="em_id" Type="varchar" MaxLength="50" />
+          <Property Name="user" Type="varchar" MaxLength="100" />
+          <Property Name="event" Type="text" />
+          <Property Name="date" Type="datetime" />
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RFS_Img_Asset">
+          <Key>
+            <PropertyRef Name="img_id" />
+          </Key>
+          <Property Name="img_id" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="img" Type="image" />
+          <Property Name="remark" Type="text" />
+        </EntityType>
+        <EntityType Name="RFS_Login">
+          <Key>
+            <PropertyRef Name="username" />
+          </Key>
+          <Property Name="username" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="password" Type="varchar" MaxLength="15" />
+          <Property Name="name" Type="varchar" MaxLength="50" />
+          <Property Name="permission" Type="int" />
+        </EntityType>
+        <EntityType Name="RFS_Model_Asset">
+          <Key>
+            <PropertyRef Name="model_id" />
+          </Key>
+          <Property Name="model_id" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="model_name" Type="varchar" MaxLength="100" />
+          <Property Name="type_id" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="RFS_Model_Asset_m">
+          <Key>
+            <PropertyRef Name="model_id_m" />
+          </Key>
+          <Property Name="model_id_m" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="model_name_m" Type="varchar" MaxLength="100" />
+          <Property Name="type_id_m" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="RFS_Software">
+          <Key>
+            <PropertyRef Name="software_id" />
+          </Key>
+          <Property Name="software_id" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="software_name" Type="varchar" MaxLength="100" />
+          <Property Name="software_remark" Type="text" />
+        </EntityType>
+        <EntityType Name="RFS_Supplier">
+          <Key>
+            <PropertyRef Name="sup_id" />
+          </Key>
+          <Property Name="sup_id" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="sup_name" Type="varchar" MaxLength="100" />
+          <Property Name="sup_tel" Type="varchar" MaxLength="50" />
+          <Property Name="sup_fax" Type="varchar" MaxLength="20" />
+          <Property Name="sup_mail" Type="varchar" MaxLength="50" />
+          <Property Name="sup_address" Type="varchar" MaxLength="255" />
+          <Property Name="sup_tex" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="RFS_Type">
+          <Key>
+            <PropertyRef Name="type_id" />
+          </Key>
+          <Property Name="type_id" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="type_name" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="RFS_Type_monitor">
+          <Key>
+            <PropertyRef Name="type_id_m" />
+          </Key>
+          <Property Name="type_id_m" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="type_name_m" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'IT_Asset.dbo.ViewAllData' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="ViewAllData">
+          <Key>
+            <PropertyRef Name="AssetID" />
+          </Key>
+          <Property Name="AssetID" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Service Tag" Type="varchar" MaxLength="50" />
+          <Property Name="Type" Type="varchar" MaxLength="50" />
+          <Property Name="Model" Type="varchar" MaxLength="100" />
+          <Property Name="Spec" Type="varchar" MaxLength="255" />
+          <Property Name="User" Type="varchar" MaxLength="50" />
+          <Property Name="Department" Type="varchar" MaxLength="50" />
+          <Property Name="Level" Type="varchar" MaxLength="50" />
+          <Property Name="Location" Type="varchar" MaxLength="50" />
+          <Property Name="Monitor" Type="varchar" MaxLength="50" />
+          <Property Name="IP" Type="varchar" MaxLength="15" />
+          <Property Name="Remark" Type="varchar" MaxLength="255" />
+          <Property Name="Supplier" Type="varchar" MaxLength="100" />
+          <Property Name="StartDate" Type="date" />
+          <Property Name="EndDate" Type="date" />
+          <Property Name="Warranty" Type="int" />
+          <Property Name="ModifiedBy" Type="varchar" MaxLength="50" />
+          <Property Name="UpdateTime" Type="datetime" />
+          <Property Name="Status" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'IT_Asset.dbo.ViewAssetMonitor' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="ViewAssetMonitor">
+          <Key>
+            <PropertyRef Name="Asset ID" />
+          </Key>
+          <Property Name="Asset ID" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Monitor ID" Type="varchar" MaxLength="50" />
+          <Property Name="Type" Type="varchar" MaxLength="50" />
+          <Property Name="Model" Type="varchar" MaxLength="100" />
+          <Property Name="Supplier" Type="varchar" MaxLength="100" />
+          <Property Name="StartDate" Type="date" />
+          <Property Name="EndDate" Type="date" />
+          <Property Name="Warranty" Type="int" />
+          <Property Name="Remark" Type="varchar" MaxLength="255" />
+          <Property Name="ModifiedBy" Type="varchar" MaxLength="50" />
+          <Property Name="UpdateTime" Type="datetime" />
+          <Property Name="Status" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'IT_Asset.dbo.ViewEmployee' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="ViewEmployee">
+          <Key>
+            <PropertyRef Name="em_id" />
+          </Key>
+          <Property Name="em_id" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="em_name_th" Type="varchar" MaxLength="50" />
+          <Property Name="em_name_eng" Type="varchar" MaxLength="50" />
+          <Property Name="em_position" Type="varchar" MaxLength="100" />
+          <Property Name="dep_name" Type="varchar" MaxLength="50" />
+          <Property Name="em_level" Type="varchar" MaxLength="50" />
+          <Property Name="em_start" Type="date" />
+          <Property Name="user_update" Type="varchar" MaxLength="50" />
+          <Property Name="date_update" Type="datetime" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'IT_Asset.dbo.ViewModel' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="ViewModel">
+          <Key>
+            <PropertyRef Name="model_id" />
+          </Key>
+          <Property Name="model_id" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="model_name" Type="varchar" MaxLength="100" />
+          <Property Name="type_name" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'IT_Asset.dbo.viewModel_m' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="viewModel_m">
+          <Key>
+            <PropertyRef Name="Model ID" />
+          </Key>
+          <Property Name="Model ID" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Model Name" Type="varchar" MaxLength="100" />
+          <Property Name="Type" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'IT_Asset.dbo.ViewSoftware' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="ViewSoftware">
+          <Key>
+            <PropertyRef Name="AssetId" />
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="AssetId" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Service_Tag" Type="varchar" MaxLength="50" />
+          <Property Name="Type" Type="varchar" MaxLength="50" />
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="SoftwareName" Type="varchar" MaxLength="100" />
+          <Property Name="Detail" Type="text" />
+        </EntityType>
+        <Association Name="FK__RFS_Asset__Activ__1CFC3D38">
+          <End Role="RFS_Activate" Type="Self.RFS_Activate" Multiplicity="0..1" />
+          <End Role="RFS_Asset" Type="Self.RFS_Asset" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RFS_Activate">
+              <PropertyRef Name="Activate_id" />
+            </Principal>
+            <Dependent Role="RFS_Asset">
+              <PropertyRef Name="Activate_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__RFS_Asset__Activ__23A93AC7">
+          <End Role="RFS_Activate" Type="Self.RFS_Activate" Multiplicity="0..1" />
+          <End Role="RFS_Asset_monitor" Type="Self.RFS_Asset_monitor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RFS_Activate">
+              <PropertyRef Name="Activate_id" />
+            </Principal>
+            <Dependent Role="RFS_Asset_monitor">
+              <PropertyRef Name="Activate_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__RFS_Asset__asset__0D4FE554">
+          <End Role="RFS_Asset" Type="Self.RFS_Asset" Multiplicity="0..1" />
+          <End Role="RFS_Asset_Software" Type="Self.RFS_Asset_Software" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RFS_Asset">
+              <PropertyRef Name="asset_list" />
+            </Principal>
+            <Dependent Role="RFS_Asset_Software">
+              <PropertyRef Name="asset_list" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__RFS_Asset__asset__1DF06171">
+          <End Role="RFS_Asset_monitor" Type="Self.RFS_Asset_monitor" Multiplicity="0..1" />
+          <End Role="RFS_Asset" Type="Self.RFS_Asset" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RFS_Asset_monitor">
+              <PropertyRef Name="asset_list_m" />
+            </Principal>
+            <Dependent Role="RFS_Asset">
+              <PropertyRef Name="asset_list_m" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__RFS_Asset__dep_i__1EE485AA">
+          <End Role="RFS_Department_2" Type="Self.RFS_Department_2" Multiplicity="0..1" />
+          <End Role="RFS_Asset" Type="Self.RFS_Asset" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RFS_Department_2">
+              <PropertyRef Name="dep_id_2" />
+            </Principal>
+            <Dependent Role="RFS_Asset">
+              <PropertyRef Name="dep_id_2" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__RFS_Asset__em_id__1FD8A9E3">
+          <End Role="RFS_Employee" Type="Self.RFS_Employee" Multiplicity="0..1" />
+          <End Role="RFS_Asset" Type="Self.RFS_Asset" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RFS_Employee">
+              <PropertyRef Name="em_id" />
+            </Principal>
+            <Dependent Role="RFS_Asset">
+              <PropertyRef Name="em_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__RFS_Asset__img_i__20CCCE1C">
+          <End Role="RFS_Img_Asset" Type="Self.RFS_Img_Asset" Multiplicity="0..1" />
+          <End Role="RFS_Asset" Type="Self.RFS_Asset" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RFS_Img_Asset">
+              <PropertyRef Name="img_id" />
+            </Principal>
+            <Dependent Role="RFS_Asset">
+              <PropertyRef Name="img_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__RFS_Asset__img_i__249D5F00">
+          <End Role="RFS_Img_Asset" Type="Self.RFS_Img_Asset" Multiplicity="0..1" />
+          <End Role="RFS_Asset_monitor" Type="Self.RFS_Asset_monitor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RFS_Img_Asset">
+              <PropertyRef Name="img_id" />
+            </Principal>
+            <Dependent Role="RFS_Asset_monitor">
+              <PropertyRef Name="img_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__RFS_Asset__model__21C0F255">
+          <End Role="RFS_Model_Asset" Type="Self.RFS_Model_Asset" Multiplicity="0..1" />
+          <End Role="RFS_Asset" Type="Self.RFS_Asset" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RFS_Model_Asset">
+              <PropertyRef Name="model_id" />
+            </Principal>
+            <Dependent Role="RFS_Asset">
+              <PropertyRef Name="model_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__RFS_Asset__model__25918339">
+          <End Role="RFS_Model_Asset_m" Type="Self.RFS_Model_Asset_m" Multiplicity="0..1" />
+          <End Role="RFS_Asset_monitor" Type="Self.RFS_Asset_monitor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RFS_Model_Asset_m">
+              <PropertyRef Name="model_id_m" />
+            </Principal>
+            <Dependent Role="RFS_Asset_monitor">
+              <PropertyRef Name="model_id_m" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__RFS_Asset__softw__0E44098D">
+          <End Role="RFS_Software" Type="Self.RFS_Software" Multiplicity="0..1" />
+          <End Role="RFS_Asset_Software" Type="Self.RFS_Asset_Software" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RFS_Software">
+              <PropertyRef Name="software_id" />
+            </Principal>
+            <Dependent Role="RFS_Asset_Software">
+              <PropertyRef Name="software_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__RFS_Asset__sup_i__22B5168E">
+          <End Role="RFS_Supplier" Type="Self.RFS_Supplier" Multiplicity="0..1" />
+          <End Role="RFS_Asset" Type="Self.RFS_Asset" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RFS_Supplier">
+              <PropertyRef Name="sup_id" />
+            </Principal>
+            <Dependent Role="RFS_Asset">
+              <PropertyRef Name="sup_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__RFS_Asset__sup_i__2685A772">
+          <End Role="RFS_Supplier" Type="Self.RFS_Supplier" Multiplicity="0..1" />
+          <End Role="RFS_Asset_monitor" Type="Self.RFS_Asset_monitor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RFS_Supplier">
+              <PropertyRef Name="sup_id" />
+            </Principal>
+            <Dependent Role="RFS_Asset_monitor">
+              <PropertyRef Name="sup_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__RFS_Emplo__dep_i__2962141D">
+          <End Role="RFS_Department" Type="Self.RFS_Department" Multiplicity="0..1" />
+          <End Role="RFS_Employee" Type="Self.RFS_Employee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RFS_Department">
+              <PropertyRef Name="dep_id" />
+            </Principal>
+            <Dependent Role="RFS_Employee">
+              <PropertyRef Name="dep_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__RFS_Model__type___2A563856">
+          <End Role="RFS_Type" Type="Self.RFS_Type" Multiplicity="0..1" />
+          <End Role="RFS_Model_Asset" Type="Self.RFS_Model_Asset" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RFS_Type">
+              <PropertyRef Name="type_id" />
+            </Principal>
+            <Dependent Role="RFS_Model_Asset">
+              <PropertyRef Name="type_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__RFS_Model__type___2B4A5C8F">
+          <End Role="RFS_Type_monitor" Type="Self.RFS_Type_monitor" Multiplicity="0..1" />
+          <End Role="RFS_Model_Asset_m" Type="Self.RFS_Model_Asset_m" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RFS_Type_monitor">
+              <PropertyRef Name="type_id_m" />
+            </Principal>
+            <Dependent Role="RFS_Model_Asset_m">
+              <PropertyRef Name="type_id_m" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="myDatabaseModelStoreContainer">
+          <EntitySet Name="RFS_Activate" EntityType="Self.RFS_Activate" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RFS_Asset" EntityType="Self.RFS_Asset" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RFS_Asset_monitor" EntityType="Self.RFS_Asset_monitor" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RFS_Asset_Software" EntityType="Self.RFS_Asset_Software" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RFS_Department" EntityType="Self.RFS_Department" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RFS_Department_2" EntityType="Self.RFS_Department_2" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RFS_Employee" EntityType="Self.RFS_Employee" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RFS_EventLog" EntityType="Self.RFS_EventLog" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RFS_Img_Asset" EntityType="Self.RFS_Img_Asset" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RFS_Login" EntityType="Self.RFS_Login" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RFS_Model_Asset" EntityType="Self.RFS_Model_Asset" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RFS_Model_Asset_m" EntityType="Self.RFS_Model_Asset_m" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RFS_Software" EntityType="Self.RFS_Software" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RFS_Supplier" EntityType="Self.RFS_Supplier" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RFS_Type" EntityType="Self.RFS_Type" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RFS_Type_monitor" EntityType="Self.RFS_Type_monitor" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ViewAllData" EntityType="Self.ViewAllData" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [ViewAllData].[AssetID] AS [AssetID], 
+    [ViewAllData].[Service Tag] AS [Service Tag], 
+    [ViewAllData].[Type] AS [Type], 
+    [ViewAllData].[Model] AS [Model], 
+    [ViewAllData].[Spec] AS [Spec], 
+    [ViewAllData].[User] AS [User], 
+    [ViewAllData].[Department] AS [Department], 
+    [ViewAllData].[Level] AS [Level], 
+    [ViewAllData].[Location] AS [Location], 
+    [ViewAllData].[Monitor] AS [Monitor], 
+    [ViewAllData].[IP] AS [IP], 
+    [ViewAllData].[Remark] AS [Remark], 
+    [ViewAllData].[Supplier] AS [Supplier], 
+    [ViewAllData].[StartDate] AS [StartDate], 
+    [ViewAllData].[EndDate] AS [EndDate], 
+    [ViewAllData].[Warranty] AS [Warranty], 
+    [ViewAllData].[ModifiedBy] AS [ModifiedBy], 
+    [ViewAllData].[UpdateTime] AS [UpdateTime], 
+    [ViewAllData].[Status] AS [Status]
+    FROM [dbo].[ViewAllData] AS [ViewAllData]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="ViewAssetMonitor" EntityType="Self.ViewAssetMonitor" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [ViewAssetMonitor].[Asset ID] AS [Asset ID], 
+    [ViewAssetMonitor].[Monitor ID] AS [Monitor ID], 
+    [ViewAssetMonitor].[Type] AS [Type], 
+    [ViewAssetMonitor].[Model] AS [Model], 
+    [ViewAssetMonitor].[Supplier] AS [Supplier], 
+    [ViewAssetMonitor].[StartDate] AS [StartDate], 
+    [ViewAssetMonitor].[EndDate] AS [EndDate], 
+    [ViewAssetMonitor].[Warranty] AS [Warranty], 
+    [ViewAssetMonitor].[Remark] AS [Remark], 
+    [ViewAssetMonitor].[ModifiedBy] AS [ModifiedBy], 
+    [ViewAssetMonitor].[UpdateTime] AS [UpdateTime], 
+    [ViewAssetMonitor].[Status] AS [Status]
+    FROM [dbo].[ViewAssetMonitor] AS [ViewAssetMonitor]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="ViewEmployee" EntityType="Self.ViewEmployee" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [ViewEmployee].[em_id] AS [em_id], 
+    [ViewEmployee].[em_name_th] AS [em_name_th], 
+    [ViewEmployee].[em_name_eng] AS [em_name_eng], 
+    [ViewEmployee].[em_position] AS [em_position], 
+    [ViewEmployee].[dep_name] AS [dep_name], 
+    [ViewEmployee].[em_level] AS [em_level], 
+    [ViewEmployee].[em_start] AS [em_start], 
+    [ViewEmployee].[user_update] AS [user_update], 
+    [ViewEmployee].[date_update] AS [date_update]
+    FROM [dbo].[ViewEmployee] AS [ViewEmployee]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="ViewModel" EntityType="Self.ViewModel" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [ViewModel].[model_id] AS [model_id], 
+    [ViewModel].[model_name] AS [model_name], 
+    [ViewModel].[type_name] AS [type_name]
+    FROM [dbo].[ViewModel] AS [ViewModel]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="viewModel_m" EntityType="Self.viewModel_m" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [viewModel_m].[Model ID] AS [Model ID], 
+    [viewModel_m].[Model Name] AS [Model Name], 
+    [viewModel_m].[Type] AS [Type]
+    FROM [dbo].[viewModel_m] AS [viewModel_m]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="ViewSoftware" EntityType="Self.ViewSoftware" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [ViewSoftware].[AssetId] AS [AssetId], 
+    [ViewSoftware].[Service_Tag] AS [Service_Tag], 
+    [ViewSoftware].[Type] AS [Type], 
+    [ViewSoftware].[Id] AS [Id], 
+    [ViewSoftware].[SoftwareName] AS [SoftwareName], 
+    [ViewSoftware].[Detail] AS [Detail]
+    FROM [dbo].[ViewSoftware] AS [ViewSoftware]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK__RFS_Asset__Activ__1CFC3D38" Association="Self.FK__RFS_Asset__Activ__1CFC3D38">
+            <End Role="RFS_Activate" EntitySet="RFS_Activate" />
+            <End Role="RFS_Asset" EntitySet="RFS_Asset" />
+          </AssociationSet>
+          <AssociationSet Name="FK__RFS_Asset__Activ__23A93AC7" Association="Self.FK__RFS_Asset__Activ__23A93AC7">
+            <End Role="RFS_Activate" EntitySet="RFS_Activate" />
+            <End Role="RFS_Asset_monitor" EntitySet="RFS_Asset_monitor" />
+          </AssociationSet>
+          <AssociationSet Name="FK__RFS_Asset__asset__0D4FE554" Association="Self.FK__RFS_Asset__asset__0D4FE554">
+            <End Role="RFS_Asset" EntitySet="RFS_Asset" />
+            <End Role="RFS_Asset_Software" EntitySet="RFS_Asset_Software" />
+          </AssociationSet>
+          <AssociationSet Name="FK__RFS_Asset__asset__1DF06171" Association="Self.FK__RFS_Asset__asset__1DF06171">
+            <End Role="RFS_Asset_monitor" EntitySet="RFS_Asset_monitor" />
+            <End Role="RFS_Asset" EntitySet="RFS_Asset" />
+          </AssociationSet>
+          <AssociationSet Name="FK__RFS_Asset__dep_i__1EE485AA" Association="Self.FK__RFS_Asset__dep_i__1EE485AA">
+            <End Role="RFS_Department_2" EntitySet="RFS_Department_2" />
+            <End Role="RFS_Asset" EntitySet="RFS_Asset" />
+          </AssociationSet>
+          <AssociationSet Name="FK__RFS_Asset__em_id__1FD8A9E3" Association="Self.FK__RFS_Asset__em_id__1FD8A9E3">
+            <End Role="RFS_Employee" EntitySet="RFS_Employee" />
+            <End Role="RFS_Asset" EntitySet="RFS_Asset" />
+          </AssociationSet>
+          <AssociationSet Name="FK__RFS_Asset__img_i__20CCCE1C" Association="Self.FK__RFS_Asset__img_i__20CCCE1C">
+            <End Role="RFS_Img_Asset" EntitySet="RFS_Img_Asset" />
+            <End Role="RFS_Asset" EntitySet="RFS_Asset" />
+          </AssociationSet>
+          <AssociationSet Name="FK__RFS_Asset__img_i__249D5F00" Association="Self.FK__RFS_Asset__img_i__249D5F00">
+            <End Role="RFS_Img_Asset" EntitySet="RFS_Img_Asset" />
+            <End Role="RFS_Asset_monitor" EntitySet="RFS_Asset_monitor" />
+          </AssociationSet>
+          <AssociationSet Name="FK__RFS_Asset__model__21C0F255" Association="Self.FK__RFS_Asset__model__21C0F255">
+            <End Role="RFS_Model_Asset" EntitySet="RFS_Model_Asset" />
+            <End Role="RFS_Asset" EntitySet="RFS_Asset" />
+          </AssociationSet>
+          <AssociationSet Name="FK__RFS_Asset__model__25918339" Association="Self.FK__RFS_Asset__model__25918339">
+            <End Role="RFS_Model_Asset_m" EntitySet="RFS_Model_Asset_m" />
+            <End Role="RFS_Asset_monitor" EntitySet="RFS_Asset_monitor" />
+          </AssociationSet>
+          <AssociationSet Name="FK__RFS_Asset__softw__0E44098D" Association="Self.FK__RFS_Asset__softw__0E44098D">
+            <End Role="RFS_Software" EntitySet="RFS_Software" />
+            <End Role="RFS_Asset_Software" EntitySet="RFS_Asset_Software" />
+          </AssociationSet>
+          <AssociationSet Name="FK__RFS_Asset__sup_i__22B5168E" Association="Self.FK__RFS_Asset__sup_i__22B5168E">
+            <End Role="RFS_Supplier" EntitySet="RFS_Supplier" />
+            <End Role="RFS_Asset" EntitySet="RFS_Asset" />
+          </AssociationSet>
+          <AssociationSet Name="FK__RFS_Asset__sup_i__2685A772" Association="Self.FK__RFS_Asset__sup_i__2685A772">
+            <End Role="RFS_Supplier" EntitySet="RFS_Supplier" />
+            <End Role="RFS_Asset_monitor" EntitySet="RFS_Asset_monitor" />
+          </AssociationSet>
+          <AssociationSet Name="FK__RFS_Emplo__dep_i__2962141D" Association="Self.FK__RFS_Emplo__dep_i__2962141D">
+            <End Role="RFS_Department" EntitySet="RFS_Department" />
+            <End Role="RFS_Employee" EntitySet="RFS_Employee" />
+          </AssociationSet>
+          <AssociationSet Name="FK__RFS_Model__type___2A563856" Association="Self.FK__RFS_Model__type___2A563856">
+            <End Role="RFS_Type" EntitySet="RFS_Type" />
+            <End Role="RFS_Model_Asset" EntitySet="RFS_Model_Asset" />
+          </AssociationSet>
+          <AssociationSet Name="FK__RFS_Model__type___2B4A5C8F" Association="Self.FK__RFS_Model__type___2B4A5C8F">
+            <End Role="RFS_Type_monitor" EntitySet="RFS_Type_monitor" />
+            <End Role="RFS_Model_Asset_m" EntitySet="RFS_Model_Asset_m" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="myDatabaseModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="RFS_Activate">
+          <Key>
+            <PropertyRef Name="Activate_id" />
+          </Key>
+          <Property Name="Activate_id" Type="Int32" Nullable="false" />
+          <Property Name="Activate_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="RFS_Asset" Relationship="Self.FK__RFS_Asset__Activ__1CFC3D38" FromRole="RFS_Activate" ToRole="RFS_Asset" />
+          <NavigationProperty Name="RFS_Asset_monitor" Relationship="myDatabaseModel.FK__RFS_Asset__Activ__23A93AC7" FromRole="RFS_Activate" ToRole="RFS_Asset_monitor" />
+        </EntityType>
+        <EntityType Name="RFS_Asset">
+          <Key>
+            <PropertyRef Name="asset_list" />
+          </Key>
+          <Property Name="asset_list" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="service_tag" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="model_id" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="processor" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="warranty_year" Type="Int32" />
+          <Property Name="start_date" Type="DateTime" Precision="0" />
+          <Property Name="end_date" Type="DateTime" Precision="0" />
+          <Property Name="status" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="em_id" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="sup_id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="dep_id_2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IMEI" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="user_insert" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="user_update" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="date_insert" Type="DateTime" Precision="3" />
+          <Property Name="date_update" Type="DateTime" Precision="3" />
+          <Property Name="img_id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="asset_list_m" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ip" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="Activate_id" Type="Int32" />
+          <NavigationProperty Name="RFS_Activate" Relationship="Self.FK__RFS_Asset__Activ__1CFC3D38" FromRole="RFS_Asset" ToRole="RFS_Activate" />
+          <NavigationProperty Name="RFS_Asset_Software" Relationship="Self.FK__RFS_Asset__asset__2779CBAB" FromRole="RFS_Asset" ToRole="RFS_Asset_Software" />
+          <NavigationProperty Name="RFS_Department_2" Relationship="Self.FK__RFS_Asset__dep_i__1EE485AA" FromRole="RFS_Asset" ToRole="RFS_Department_2" />
+          <NavigationProperty Name="RFS_Employee" Relationship="Self.FK__RFS_Asset__em_id__1FD8A9E3" FromRole="RFS_Asset" ToRole="RFS_Employee" />
+          <NavigationProperty Name="RFS_Img_Asset" Relationship="Self.FK__RFS_Asset__img_i__20CCCE1C" FromRole="RFS_Asset" ToRole="RFS_Img_Asset" />
+          <NavigationProperty Name="RFS_Model_Asset" Relationship="Self.FK__RFS_Asset__model__21C0F255" FromRole="RFS_Asset" ToRole="RFS_Model_Asset" />
+          <NavigationProperty Name="RFS_Supplier" Relationship="Self.FK__RFS_Asset__sup_i__22B5168E" FromRole="RFS_Asset" ToRole="RFS_Supplier" />
+          <Property Name="img" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <NavigationProperty Name="RFS_Asset_monitor" Relationship="myDatabaseModel.FK__RFS_Asset__asset__1DF06171" FromRole="RFS_Asset" ToRole="RFS_Asset_monitor" />
+        </EntityType>
+        <EntityType Name="RFS_Asset_Software">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="asset_list" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="software_id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="as_detail" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="RFS_Asset" Relationship="Self.FK__RFS_Asset__asset__2779CBAB" FromRole="RFS_Asset_Software" ToRole="RFS_Asset" />
+          <NavigationProperty Name="RFS_Software" Relationship="Self.FK__RFS_Asset__softw__286DEFE4" FromRole="RFS_Asset_Software" ToRole="RFS_Software" />
+        </EntityType>
+        <EntityType Name="RFS_Department">
+          <Key>
+            <PropertyRef Name="dep_id" />
+          </Key>
+          <Property Name="dep_id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="dep_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="dep_floor" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="RFS_Employee" Relationship="Self.FK__RFS_Emplo__dep_i__2962141D" FromRole="RFS_Department" ToRole="RFS_Employee" />
+        </EntityType>
+        <EntityType Name="RFS_Department_2">
+          <Key>
+            <PropertyRef Name="dep_id_2" />
+          </Key>
+          <Property Name="dep_id_2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="dep_name_2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="dep_floor_2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="RFS_Asset" Relationship="Self.FK__RFS_Asset__dep_i__1EE485AA" FromRole="RFS_Department_2" ToRole="RFS_Asset" />
+        </EntityType>
+        <EntityType Name="RFS_Employee">
+          <Key>
+            <PropertyRef Name="em_id" />
+          </Key>
+          <Property Name="em_id" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="em_name_th" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="em_name_eng" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="em_position" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="dep_id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="em_level" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="em_start" Type="DateTime" Precision="0" />
+          <Property Name="user_insert" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="user_update" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="date_insert" Type="DateTime" Precision="3" />
+          <Property Name="date_update" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="RFS_Asset" Relationship="Self.FK__RFS_Asset__em_id__1FD8A9E3" FromRole="RFS_Employee" ToRole="RFS_Asset" />
+          <NavigationProperty Name="RFS_Department" Relationship="Self.FK__RFS_Emplo__dep_i__2962141D" FromRole="RFS_Employee" ToRole="RFS_Department" />
+        </EntityType>
+        <EntityType Name="RFS_Img_Asset">
+          <Key>
+            <PropertyRef Name="img_id" />
+          </Key>
+          <Property Name="img_id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="img" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="remark" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="RFS_Asset" Relationship="Self.FK__RFS_Asset__img_i__20CCCE1C" FromRole="RFS_Img_Asset" ToRole="RFS_Asset" />
+          <NavigationProperty Name="RFS_Asset_monitor" Relationship="myDatabaseModel.FK__RFS_Asset__img_i__249D5F00" FromRole="RFS_Img_Asset" ToRole="RFS_Asset_monitor" />
+        </EntityType>
+        <EntityType Name="RFS_Login">
+          <Key>
+            <PropertyRef Name="username" />
+          </Key>
+          <Property Name="username" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="password" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="permission" Type="Int32" />
+        </EntityType>
+        <EntityType Name="RFS_Model_Asset">
+          <Key>
+            <PropertyRef Name="model_id" />
+          </Key>
+          <Property Name="model_id" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="model_name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="type_id" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="RFS_Asset" Relationship="Self.FK__RFS_Asset__model__21C0F255" FromRole="RFS_Model_Asset" ToRole="RFS_Asset" />
+          <NavigationProperty Name="RFS_Type" Relationship="Self.FK__RFS_Model__type___2A563856" FromRole="RFS_Model_Asset" ToRole="RFS_Type" />
+        </EntityType>
+        <EntityType Name="RFS_Model_Asset_m">
+          <Key>
+            <PropertyRef Name="model_id_m" />
+          </Key>
+          <Property Name="model_id_m" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="model_name_m" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="type_id_m" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="RFS_Type_monitor" Relationship="Self.FK__RFS_Model__type___2B4A5C8F" FromRole="RFS_Model_Asset_m" ToRole="RFS_Type_monitor" />
+          <NavigationProperty Name="RFS_Asset_monitor" Relationship="myDatabaseModel.FK__RFS_Asset__model__25918339" FromRole="RFS_Model_Asset_m" ToRole="RFS_Asset_monitor" />
+        </EntityType>
+        <EntityType Name="RFS_Software">
+          <Key>
+            <PropertyRef Name="software_id" />
+          </Key>
+          <Property Name="software_id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="software_name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="software_remark" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="RFS_Asset_Software" Relationship="Self.FK__RFS_Asset__softw__286DEFE4" FromRole="RFS_Software" ToRole="RFS_Asset_Software" />
+        </EntityType>
+        <EntityType Name="RFS_Supplier">
+          <Key>
+            <PropertyRef Name="sup_id" />
+          </Key>
+          <Property Name="sup_id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="sup_name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="sup_tel" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="sup_fax" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="sup_mail" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="sup_address" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="sup_tex" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="RFS_Asset" Relationship="Self.FK__RFS_Asset__sup_i__22B5168E" FromRole="RFS_Supplier" ToRole="RFS_Asset" />
+          <NavigationProperty Name="RFS_Asset_monitor" Relationship="myDatabaseModel.FK__RFS_Asset__sup_i__2685A772" FromRole="RFS_Supplier" ToRole="RFS_Asset_monitor" />
+        </EntityType>
+        <EntityType Name="RFS_Type">
+          <Key>
+            <PropertyRef Name="type_id" />
+          </Key>
+          <Property Name="type_id" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="type_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="RFS_Model_Asset" Relationship="Self.FK__RFS_Model__type___2A563856" FromRole="RFS_Type" ToRole="RFS_Model_Asset" />
+        </EntityType>
+        <EntityType Name="RFS_Type_monitor">
+          <Key>
+            <PropertyRef Name="type_id_m" />
+          </Key>
+          <Property Name="type_id_m" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="type_name_m" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="RFS_Model_Asset_m" Relationship="Self.FK__RFS_Model__type___2B4A5C8F" FromRole="RFS_Type_monitor" ToRole="RFS_Model_Asset_m" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <Association Name="FK__RFS_Asset__Activ__1CFC3D38">
+          <End Role="RFS_Activate" Type="Self.RFS_Activate" Multiplicity="0..1" />
+          <End Role="RFS_Asset" Type="Self.RFS_Asset" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RFS_Activate">
+              <PropertyRef Name="Activate_id" />
+            </Principal>
+            <Dependent Role="RFS_Asset">
+              <PropertyRef Name="Activate_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__RFS_Asset__asset__2779CBAB">
+          <End Role="RFS_Asset" Type="Self.RFS_Asset" Multiplicity="0..1" />
+          <End Role="RFS_Asset_Software" Type="Self.RFS_Asset_Software" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RFS_Asset">
+              <PropertyRef Name="asset_list" />
+            </Principal>
+            <Dependent Role="RFS_Asset_Software">
+              <PropertyRef Name="asset_list" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__RFS_Asset__dep_i__1EE485AA">
+          <End Role="RFS_Department_2" Type="Self.RFS_Department_2" Multiplicity="0..1" />
+          <End Role="RFS_Asset" Type="Self.RFS_Asset" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RFS_Department_2">
+              <PropertyRef Name="dep_id_2" />
+            </Principal>
+            <Dependent Role="RFS_Asset">
+              <PropertyRef Name="dep_id_2" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__RFS_Asset__em_id__1FD8A9E3">
+          <End Role="RFS_Employee" Type="Self.RFS_Employee" Multiplicity="0..1" />
+          <End Role="RFS_Asset" Type="Self.RFS_Asset" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RFS_Employee">
+              <PropertyRef Name="em_id" />
+            </Principal>
+            <Dependent Role="RFS_Asset">
+              <PropertyRef Name="em_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__RFS_Asset__img_i__20CCCE1C">
+          <End Role="RFS_Img_Asset" Type="Self.RFS_Img_Asset" Multiplicity="0..1" />
+          <End Role="RFS_Asset" Type="Self.RFS_Asset" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RFS_Img_Asset">
+              <PropertyRef Name="img_id" />
+            </Principal>
+            <Dependent Role="RFS_Asset">
+              <PropertyRef Name="img_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__RFS_Asset__model__21C0F255">
+          <End Role="RFS_Model_Asset" Type="Self.RFS_Model_Asset" Multiplicity="0..1" />
+          <End Role="RFS_Asset" Type="Self.RFS_Asset" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RFS_Model_Asset">
+              <PropertyRef Name="model_id" />
+            </Principal>
+            <Dependent Role="RFS_Asset">
+              <PropertyRef Name="model_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__RFS_Asset__sup_i__22B5168E">
+          <End Role="RFS_Supplier" Type="Self.RFS_Supplier" Multiplicity="0..1" />
+          <End Role="RFS_Asset" Type="Self.RFS_Asset" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RFS_Supplier">
+              <PropertyRef Name="sup_id" />
+            </Principal>
+            <Dependent Role="RFS_Asset">
+              <PropertyRef Name="sup_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__RFS_Asset__softw__286DEFE4">
+          <End Role="RFS_Software" Type="Self.RFS_Software" Multiplicity="0..1" />
+          <End Role="RFS_Asset_Software" Type="Self.RFS_Asset_Software" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RFS_Software">
+              <PropertyRef Name="software_id" />
+            </Principal>
+            <Dependent Role="RFS_Asset_Software">
+              <PropertyRef Name="software_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__RFS_Emplo__dep_i__2962141D">
+          <End Role="RFS_Department" Type="Self.RFS_Department" Multiplicity="0..1" />
+          <End Role="RFS_Employee" Type="Self.RFS_Employee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RFS_Department">
+              <PropertyRef Name="dep_id" />
+            </Principal>
+            <Dependent Role="RFS_Employee">
+              <PropertyRef Name="dep_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__RFS_Model__type___2A563856">
+          <End Role="RFS_Type" Type="Self.RFS_Type" Multiplicity="0..1" />
+          <End Role="RFS_Model_Asset" Type="Self.RFS_Model_Asset" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RFS_Type">
+              <PropertyRef Name="type_id" />
+            </Principal>
+            <Dependent Role="RFS_Model_Asset">
+              <PropertyRef Name="type_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__RFS_Model__type___2B4A5C8F">
+          <End Role="RFS_Type_monitor" Type="Self.RFS_Type_monitor" Multiplicity="0..1" />
+          <End Role="RFS_Model_Asset_m" Type="Self.RFS_Model_Asset_m" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RFS_Type_monitor">
+              <PropertyRef Name="type_id_m" />
+            </Principal>
+            <Dependent Role="RFS_Model_Asset_m">
+              <PropertyRef Name="type_id_m" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="myDatabaseEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="RFS_Activate" EntityType="Self.RFS_Activate" />
+          <EntitySet Name="RFS_Asset" EntityType="Self.RFS_Asset" />
+          <EntitySet Name="RFS_Asset_Software" EntityType="Self.RFS_Asset_Software" />
+          <EntitySet Name="RFS_Department" EntityType="Self.RFS_Department" />
+          <EntitySet Name="RFS_Department_2" EntityType="Self.RFS_Department_2" />
+          <EntitySet Name="RFS_Employee" EntityType="Self.RFS_Employee" />
+          <EntitySet Name="RFS_Img_Asset" EntityType="Self.RFS_Img_Asset" />
+          <EntitySet Name="RFS_Login" EntityType="Self.RFS_Login" />
+          <EntitySet Name="RFS_Model_Asset" EntityType="Self.RFS_Model_Asset" />
+          <EntitySet Name="RFS_Model_Asset_m" EntityType="Self.RFS_Model_Asset_m" />
+          <EntitySet Name="RFS_Software" EntityType="Self.RFS_Software" />
+          <EntitySet Name="RFS_Supplier" EntityType="Self.RFS_Supplier" />
+          <EntitySet Name="RFS_Type" EntityType="Self.RFS_Type" />
+          <EntitySet Name="RFS_Type_monitor" EntityType="Self.RFS_Type_monitor" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+          <AssociationSet Name="FK__RFS_Asset__Activ__1CFC3D38" Association="Self.FK__RFS_Asset__Activ__1CFC3D38">
+            <End Role="RFS_Activate" EntitySet="RFS_Activate" />
+            <End Role="RFS_Asset" EntitySet="RFS_Asset" />
+          </AssociationSet>
+          <AssociationSet Name="FK__RFS_Asset__asset__2779CBAB" Association="Self.FK__RFS_Asset__asset__2779CBAB">
+            <End Role="RFS_Asset" EntitySet="RFS_Asset" />
+            <End Role="RFS_Asset_Software" EntitySet="RFS_Asset_Software" />
+          </AssociationSet>
+          <AssociationSet Name="FK__RFS_Asset__dep_i__1EE485AA" Association="Self.FK__RFS_Asset__dep_i__1EE485AA">
+            <End Role="RFS_Department_2" EntitySet="RFS_Department_2" />
+            <End Role="RFS_Asset" EntitySet="RFS_Asset" />
+          </AssociationSet>
+          <AssociationSet Name="FK__RFS_Asset__em_id__1FD8A9E3" Association="Self.FK__RFS_Asset__em_id__1FD8A9E3">
+            <End Role="RFS_Employee" EntitySet="RFS_Employee" />
+            <End Role="RFS_Asset" EntitySet="RFS_Asset" />
+          </AssociationSet>
+          <AssociationSet Name="FK__RFS_Asset__img_i__20CCCE1C" Association="Self.FK__RFS_Asset__img_i__20CCCE1C">
+            <End Role="RFS_Img_Asset" EntitySet="RFS_Img_Asset" />
+            <End Role="RFS_Asset" EntitySet="RFS_Asset" />
+          </AssociationSet>
+          <AssociationSet Name="FK__RFS_Asset__model__21C0F255" Association="Self.FK__RFS_Asset__model__21C0F255">
+            <End Role="RFS_Model_Asset" EntitySet="RFS_Model_Asset" />
+            <End Role="RFS_Asset" EntitySet="RFS_Asset" />
+          </AssociationSet>
+          <AssociationSet Name="FK__RFS_Asset__sup_i__22B5168E" Association="Self.FK__RFS_Asset__sup_i__22B5168E">
+            <End Role="RFS_Supplier" EntitySet="RFS_Supplier" />
+            <End Role="RFS_Asset" EntitySet="RFS_Asset" />
+          </AssociationSet>
+          <AssociationSet Name="FK__RFS_Asset__softw__286DEFE4" Association="Self.FK__RFS_Asset__softw__286DEFE4">
+            <End Role="RFS_Software" EntitySet="RFS_Software" />
+            <End Role="RFS_Asset_Software" EntitySet="RFS_Asset_Software" />
+          </AssociationSet>
+          <AssociationSet Name="FK__RFS_Emplo__dep_i__2962141D" Association="Self.FK__RFS_Emplo__dep_i__2962141D">
+            <End Role="RFS_Department" EntitySet="RFS_Department" />
+            <End Role="RFS_Employee" EntitySet="RFS_Employee" />
+          </AssociationSet>
+          <AssociationSet Name="FK__RFS_Model__type___2A563856" Association="Self.FK__RFS_Model__type___2A563856">
+            <End Role="RFS_Type" EntitySet="RFS_Type" />
+            <End Role="RFS_Model_Asset" EntitySet="RFS_Model_Asset" />
+          </AssociationSet>
+          <AssociationSet Name="FK__RFS_Model__type___2B4A5C8F" Association="Self.FK__RFS_Model__type___2B4A5C8F">
+            <End Role="RFS_Type_monitor" EntitySet="RFS_Type_monitor" />
+            <End Role="RFS_Model_Asset_m" EntitySet="RFS_Model_Asset_m" />
+          </AssociationSet>
+          <EntitySet Name="ViewAllData" EntityType="myDatabaseModel.ViewAllData" />
+          <EntitySet Name="ViewSoftware" EntityType="myDatabaseModel.ViewSoftware" />
+          <EntitySet Name="ViewAssetMonitor" EntityType="myDatabaseModel.ViewAssetMonitor" />
+          <EntitySet Name="viewModel_m" EntityType="myDatabaseModel.viewModel_m" />
+          <EntitySet Name="ViewEmployee" EntityType="myDatabaseModel.ViewEmployee" />
+          <EntitySet Name="ViewModel" EntityType="myDatabaseModel.ViewModel" />
+          <EntitySet Name="RFS_Asset_monitor" EntityType="myDatabaseModel.RFS_Asset_monitor" />
+          <EntitySet Name="RFS_EventLog" EntityType="myDatabaseModel.RFS_EventLog" />
+          <AssociationSet Name="FK__RFS_Asset__Activ__23A93AC7" Association="myDatabaseModel.FK__RFS_Asset__Activ__23A93AC7">
+            <End Role="RFS_Activate" EntitySet="RFS_Activate" />
+            <End Role="RFS_Asset_monitor" EntitySet="RFS_Asset_monitor" />
+          </AssociationSet>
+          <AssociationSet Name="FK__RFS_Asset__asset__1DF06171" Association="myDatabaseModel.FK__RFS_Asset__asset__1DF06171">
+            <End Role="RFS_Asset_monitor" EntitySet="RFS_Asset_monitor" />
+            <End Role="RFS_Asset" EntitySet="RFS_Asset" />
+          </AssociationSet>
+          <AssociationSet Name="FK__RFS_Asset__img_i__249D5F00" Association="myDatabaseModel.FK__RFS_Asset__img_i__249D5F00">
+            <End Role="RFS_Img_Asset" EntitySet="RFS_Img_Asset" />
+            <End Role="RFS_Asset_monitor" EntitySet="RFS_Asset_monitor" />
+          </AssociationSet>
+          <AssociationSet Name="FK__RFS_Asset__model__25918339" Association="myDatabaseModel.FK__RFS_Asset__model__25918339">
+            <End Role="RFS_Model_Asset_m" EntitySet="RFS_Model_Asset_m" />
+            <End Role="RFS_Asset_monitor" EntitySet="RFS_Asset_monitor" />
+          </AssociationSet>
+          <AssociationSet Name="FK__RFS_Asset__sup_i__2685A772" Association="myDatabaseModel.FK__RFS_Asset__sup_i__2685A772">
+            <End Role="RFS_Supplier" EntitySet="RFS_Supplier" />
+            <End Role="RFS_Asset_monitor" EntitySet="RFS_Asset_monitor" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="ViewAllData">
+          <Key>
+            <PropertyRef Name="AssetID" />
+          </Key>
+          <Property Name="AssetID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Service_Tag" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Model" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Spec" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="User" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Level" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Location" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Monitor" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IP" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="Remark" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Supplier" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Warranty" Type="Int32" />
+          <Property Name="StartDate" Type="DateTime" Precision="0" />
+          <Property Name="EndDate" Type="DateTime" Precision="0" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UpdateTime" Type="DateTime" Precision="3" />
+          <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Department" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="ViewSoftware">
+          <Key>
+            <PropertyRef Name="AssetId" />
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="AssetId" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Service_Tag" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="SoftwareName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Detail" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="ViewAssetMonitor">
+          <Key>
+            <PropertyRef Name="Asset_ID" />
+          </Key>
+          <Property Name="Asset_ID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Monitor_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Model" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Supplier" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="StartDate" Type="DateTime" Precision="0" />
+          <Property Name="EndDate" Type="DateTime" Precision="0" />
+          <Property Name="Warranty" Type="Int32" />
+          <Property Name="Remark" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UpdateTime" Type="DateTime" Precision="3" />
+          <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="viewModel_m">
+          <Key>
+            <PropertyRef Name="Model_ID" />
+          </Key>
+          <Property Name="Model_ID" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Model_Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="ViewEmployee">
+          <Key>
+            <PropertyRef Name="em_id" />
+          </Key>
+          <Property Name="em_id" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="em_name_th" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="em_name_eng" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="em_position" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="dep_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="em_level" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="em_start" Type="DateTime" Precision="0" />
+          <Property Name="user_update" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="date_update" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="ViewModel">
+          <Key>
+            <PropertyRef Name="model_id" />
+          </Key>
+          <Property Name="model_id" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="model_name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="type_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="RFS_Asset_monitor">
+          <Key>
+            <PropertyRef Name="asset_list_m" />
+          </Key>
+          <Property Name="asset_list_m" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="model_id_m" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="monitor_id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="warranty_year" Type="Int32" />
+          <Property Name="start_date" Type="DateTime" Precision="0" />
+          <Property Name="end_date" Type="DateTime" Precision="0" />
+          <Property Name="status" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="sup_id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="user_insert" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="user_update" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="date_insert" Type="DateTime" Precision="3" />
+          <Property Name="date_update" Type="DateTime" Precision="3" />
+          <Property Name="img_id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="check_status" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="Activate_id" Type="Int32" />
+          <Property Name="img" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <NavigationProperty Name="RFS_Activate" Relationship="myDatabaseModel.FK__RFS_Asset__Activ__23A93AC7" FromRole="RFS_Asset_monitor" ToRole="RFS_Activate" />
+          <NavigationProperty Name="RFS_Asset" Relationship="myDatabaseModel.FK__RFS_Asset__asset__1DF06171" FromRole="RFS_Asset_monitor" ToRole="RFS_Asset" />
+          <NavigationProperty Name="RFS_Img_Asset" Relationship="myDatabaseModel.FK__RFS_Asset__img_i__249D5F00" FromRole="RFS_Asset_monitor" ToRole="RFS_Img_Asset" />
+          <NavigationProperty Name="RFS_Model_Asset_m" Relationship="myDatabaseModel.FK__RFS_Asset__model__25918339" FromRole="RFS_Asset_monitor" ToRole="RFS_Model_Asset_m" />
+          <NavigationProperty Name="RFS_Supplier" Relationship="myDatabaseModel.FK__RFS_Asset__sup_i__2685A772" FromRole="RFS_Asset_monitor" ToRole="RFS_Supplier" />
+        </EntityType>
+        <EntityType Name="RFS_EventLog">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="asset_id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="em_id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="user" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="event" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="date" Type="DateTime" Precision="3" />
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <Association Name="FK__RFS_Asset__Activ__23A93AC7">
+          <End Type="myDatabaseModel.RFS_Activate" Role="RFS_Activate" Multiplicity="0..1" />
+          <End Type="myDatabaseModel.RFS_Asset_monitor" Role="RFS_Asset_monitor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RFS_Activate">
+              <PropertyRef Name="Activate_id" />
+            </Principal>
+            <Dependent Role="RFS_Asset_monitor">
+              <PropertyRef Name="Activate_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__RFS_Asset__asset__1DF06171">
+          <End Type="myDatabaseModel.RFS_Asset_monitor" Role="RFS_Asset_monitor" Multiplicity="0..1" />
+          <End Type="myDatabaseModel.RFS_Asset" Role="RFS_Asset" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RFS_Asset_monitor">
+              <PropertyRef Name="asset_list_m" />
+            </Principal>
+            <Dependent Role="RFS_Asset">
+              <PropertyRef Name="asset_list_m" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__RFS_Asset__img_i__249D5F00">
+          <End Type="myDatabaseModel.RFS_Img_Asset" Role="RFS_Img_Asset" Multiplicity="0..1" />
+          <End Type="myDatabaseModel.RFS_Asset_monitor" Role="RFS_Asset_monitor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RFS_Img_Asset">
+              <PropertyRef Name="img_id" />
+            </Principal>
+            <Dependent Role="RFS_Asset_monitor">
+              <PropertyRef Name="img_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__RFS_Asset__model__25918339">
+          <End Type="myDatabaseModel.RFS_Model_Asset_m" Role="RFS_Model_Asset_m" Multiplicity="0..1" />
+          <End Type="myDatabaseModel.RFS_Asset_monitor" Role="RFS_Asset_monitor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RFS_Model_Asset_m">
+              <PropertyRef Name="model_id_m" />
+            </Principal>
+            <Dependent Role="RFS_Asset_monitor">
+              <PropertyRef Name="model_id_m" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__RFS_Asset__sup_i__2685A772">
+          <End Type="myDatabaseModel.RFS_Supplier" Role="RFS_Supplier" Multiplicity="0..1" />
+          <End Type="myDatabaseModel.RFS_Asset_monitor" Role="RFS_Asset_monitor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RFS_Supplier">
+              <PropertyRef Name="sup_id" />
+            </Principal>
+            <Dependent Role="RFS_Asset_monitor">
+              <PropertyRef Name="sup_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="myDatabaseModelStoreContainer" CdmEntityContainer="myDatabaseEntities">
+          <EntitySetMapping Name="RFS_Activate">
+            <EntityTypeMapping TypeName="myDatabaseModel.RFS_Activate">
+              <MappingFragment StoreEntitySet="RFS_Activate">
+                <ScalarProperty Name="Activate_id" ColumnName="Activate_id" />
+                <ScalarProperty Name="Activate_name" ColumnName="Activate_name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RFS_Asset">
+            <EntityTypeMapping TypeName="myDatabaseModel.RFS_Asset">
+              <MappingFragment StoreEntitySet="RFS_Asset">
+                <ScalarProperty Name="img" ColumnName="img" />
+                <ScalarProperty Name="asset_list" ColumnName="asset_list" />
+                <ScalarProperty Name="service_tag" ColumnName="service_tag" />
+                <ScalarProperty Name="model_id" ColumnName="model_id" />
+                <ScalarProperty Name="processor" ColumnName="processor" />
+                <ScalarProperty Name="warranty_year" ColumnName="warranty_year" />
+                <ScalarProperty Name="start_date" ColumnName="start_date" />
+                <ScalarProperty Name="end_date" ColumnName="end_date" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="em_id" ColumnName="em_id" />
+                <ScalarProperty Name="sup_id" ColumnName="sup_id" />
+                <ScalarProperty Name="dep_id_2" ColumnName="dep_id_2" />
+                <ScalarProperty Name="IMEI" ColumnName="IMEI" />
+                <ScalarProperty Name="user_insert" ColumnName="user_insert" />
+                <ScalarProperty Name="user_update" ColumnName="user_update" />
+                <ScalarProperty Name="date_insert" ColumnName="date_insert" />
+                <ScalarProperty Name="date_update" ColumnName="date_update" />
+                <ScalarProperty Name="img_id" ColumnName="img_id" />
+                <ScalarProperty Name="asset_list_m" ColumnName="asset_list_m" />
+                <ScalarProperty Name="ip" ColumnName="ip" />
+                <ScalarProperty Name="Activate_id" ColumnName="Activate_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RFS_Asset_Software">
+            <EntityTypeMapping TypeName="myDatabaseModel.RFS_Asset_Software">
+              <MappingFragment StoreEntitySet="RFS_Asset_Software">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="asset_list" ColumnName="asset_list" />
+                <ScalarProperty Name="software_id" ColumnName="software_id" />
+                <ScalarProperty Name="as_detail" ColumnName="as_detail" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RFS_Department">
+            <EntityTypeMapping TypeName="myDatabaseModel.RFS_Department">
+              <MappingFragment StoreEntitySet="RFS_Department">
+                <ScalarProperty Name="dep_id" ColumnName="dep_id" />
+                <ScalarProperty Name="dep_name" ColumnName="dep_name" />
+                <ScalarProperty Name="dep_floor" ColumnName="dep_floor" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RFS_Department_2">
+            <EntityTypeMapping TypeName="myDatabaseModel.RFS_Department_2">
+              <MappingFragment StoreEntitySet="RFS_Department_2">
+                <ScalarProperty Name="dep_id_2" ColumnName="dep_id_2" />
+                <ScalarProperty Name="dep_name_2" ColumnName="dep_name_2" />
+                <ScalarProperty Name="dep_floor_2" ColumnName="dep_floor_2" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RFS_Employee">
+            <EntityTypeMapping TypeName="myDatabaseModel.RFS_Employee">
+              <MappingFragment StoreEntitySet="RFS_Employee">
+                <ScalarProperty Name="em_id" ColumnName="em_id" />
+                <ScalarProperty Name="em_name_th" ColumnName="em_name_th" />
+                <ScalarProperty Name="em_name_eng" ColumnName="em_name_eng" />
+                <ScalarProperty Name="em_position" ColumnName="em_position" />
+                <ScalarProperty Name="dep_id" ColumnName="dep_id" />
+                <ScalarProperty Name="em_level" ColumnName="em_level" />
+                <ScalarProperty Name="em_start" ColumnName="em_start" />
+                <ScalarProperty Name="user_insert" ColumnName="user_insert" />
+                <ScalarProperty Name="user_update" ColumnName="user_update" />
+                <ScalarProperty Name="date_insert" ColumnName="date_insert" />
+                <ScalarProperty Name="date_update" ColumnName="date_update" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RFS_Img_Asset">
+            <EntityTypeMapping TypeName="myDatabaseModel.RFS_Img_Asset">
+              <MappingFragment StoreEntitySet="RFS_Img_Asset">
+                <ScalarProperty Name="img_id" ColumnName="img_id" />
+                <ScalarProperty Name="img" ColumnName="img" />
+                <ScalarProperty Name="remark" ColumnName="remark" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RFS_Login">
+            <EntityTypeMapping TypeName="myDatabaseModel.RFS_Login">
+              <MappingFragment StoreEntitySet="RFS_Login">
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="permission" ColumnName="permission" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RFS_Model_Asset">
+            <EntityTypeMapping TypeName="myDatabaseModel.RFS_Model_Asset">
+              <MappingFragment StoreEntitySet="RFS_Model_Asset">
+                <ScalarProperty Name="model_id" ColumnName="model_id" />
+                <ScalarProperty Name="model_name" ColumnName="model_name" />
+                <ScalarProperty Name="type_id" ColumnName="type_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RFS_Model_Asset_m">
+            <EntityTypeMapping TypeName="myDatabaseModel.RFS_Model_Asset_m">
+              <MappingFragment StoreEntitySet="RFS_Model_Asset_m">
+                <ScalarProperty Name="model_id_m" ColumnName="model_id_m" />
+                <ScalarProperty Name="model_name_m" ColumnName="model_name_m" />
+                <ScalarProperty Name="type_id_m" ColumnName="type_id_m" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RFS_Software">
+            <EntityTypeMapping TypeName="myDatabaseModel.RFS_Software">
+              <MappingFragment StoreEntitySet="RFS_Software">
+                <ScalarProperty Name="software_id" ColumnName="software_id" />
+                <ScalarProperty Name="software_name" ColumnName="software_name" />
+                <ScalarProperty Name="software_remark" ColumnName="software_remark" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RFS_Supplier">
+            <EntityTypeMapping TypeName="myDatabaseModel.RFS_Supplier">
+              <MappingFragment StoreEntitySet="RFS_Supplier">
+                <ScalarProperty Name="sup_id" ColumnName="sup_id" />
+                <ScalarProperty Name="sup_name" ColumnName="sup_name" />
+                <ScalarProperty Name="sup_tel" ColumnName="sup_tel" />
+                <ScalarProperty Name="sup_fax" ColumnName="sup_fax" />
+                <ScalarProperty Name="sup_mail" ColumnName="sup_mail" />
+                <ScalarProperty Name="sup_address" ColumnName="sup_address" />
+                <ScalarProperty Name="sup_tex" ColumnName="sup_tex" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RFS_Type">
+            <EntityTypeMapping TypeName="myDatabaseModel.RFS_Type">
+              <MappingFragment StoreEntitySet="RFS_Type">
+                <ScalarProperty Name="type_id" ColumnName="type_id" />
+                <ScalarProperty Name="type_name" ColumnName="type_name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RFS_Type_monitor">
+            <EntityTypeMapping TypeName="myDatabaseModel.RFS_Type_monitor">
+              <MappingFragment StoreEntitySet="RFS_Type_monitor">
+                <ScalarProperty Name="type_id_m" ColumnName="type_id_m" />
+                <ScalarProperty Name="type_name_m" ColumnName="type_name_m" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="myDatabaseModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ViewAllData">
+            <EntityTypeMapping TypeName="myDatabaseModel.ViewAllData">
+              <MappingFragment StoreEntitySet="ViewAllData">
+                <ScalarProperty Name="Department" ColumnName="Department" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+                <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+                <ScalarProperty Name="Warranty" ColumnName="Warranty" />
+                <ScalarProperty Name="Supplier" ColumnName="Supplier" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="IP" ColumnName="IP" />
+                <ScalarProperty Name="Monitor" ColumnName="Monitor" />
+                <ScalarProperty Name="Location" ColumnName="Location" />
+                <ScalarProperty Name="Level" ColumnName="Level" />
+                <ScalarProperty Name="User" ColumnName="User" />
+                <ScalarProperty Name="Spec" ColumnName="Spec" />
+                <ScalarProperty Name="Model" ColumnName="Model" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Service_Tag" ColumnName="Service Tag" />
+                <ScalarProperty Name="AssetID" ColumnName="AssetID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ViewSoftware">
+            <EntityTypeMapping TypeName="myDatabaseModel.ViewSoftware">
+              <MappingFragment StoreEntitySet="ViewSoftware">
+                <ScalarProperty Name="Detail" ColumnName="Detail" />
+                <ScalarProperty Name="SoftwareName" ColumnName="SoftwareName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Service_Tag" ColumnName="Service_Tag" />
+                <ScalarProperty Name="AssetId" ColumnName="AssetId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ViewAssetMonitor">
+            <EntityTypeMapping TypeName="myDatabaseModel.ViewAssetMonitor">
+              <MappingFragment StoreEntitySet="ViewAssetMonitor">
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="Warranty" ColumnName="Warranty" />
+                <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+                <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+                <ScalarProperty Name="Supplier" ColumnName="Supplier" />
+                <ScalarProperty Name="Model" ColumnName="Model" />
+                <ScalarProperty Name="Monitor_ID" ColumnName="Monitor ID" />
+                <ScalarProperty Name="Asset_ID" ColumnName="Asset ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="viewModel_m">
+            <EntityTypeMapping TypeName="myDatabaseModel.viewModel_m">
+              <MappingFragment StoreEntitySet="viewModel_m">
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Model_Name" ColumnName="Model Name" />
+                <ScalarProperty Name="Model_ID" ColumnName="Model ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ViewEmployee">
+            <EntityTypeMapping TypeName="myDatabaseModel.ViewEmployee">
+              <MappingFragment StoreEntitySet="ViewEmployee">
+                <ScalarProperty Name="date_update" ColumnName="date_update" />
+                <ScalarProperty Name="user_update" ColumnName="user_update" />
+                <ScalarProperty Name="em_start" ColumnName="em_start" />
+                <ScalarProperty Name="em_level" ColumnName="em_level" />
+                <ScalarProperty Name="dep_name" ColumnName="dep_name" />
+                <ScalarProperty Name="em_position" ColumnName="em_position" />
+                <ScalarProperty Name="em_name_eng" ColumnName="em_name_eng" />
+                <ScalarProperty Name="em_name_th" ColumnName="em_name_th" />
+                <ScalarProperty Name="em_id" ColumnName="em_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ViewModel">
+            <EntityTypeMapping TypeName="myDatabaseModel.ViewModel">
+              <MappingFragment StoreEntitySet="ViewModel">
+                <ScalarProperty Name="type_name" ColumnName="type_name" />
+                <ScalarProperty Name="model_name" ColumnName="model_name" />
+                <ScalarProperty Name="model_id" ColumnName="model_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RFS_Asset_monitor">
+            <EntityTypeMapping TypeName="myDatabaseModel.RFS_Asset_monitor">
+              <MappingFragment StoreEntitySet="RFS_Asset_monitor">
+                <ScalarProperty Name="img" ColumnName="img" />
+                <ScalarProperty Name="Activate_id" ColumnName="Activate_id" />
+                <ScalarProperty Name="check_status" ColumnName="check_status" />
+                <ScalarProperty Name="img_id" ColumnName="img_id" />
+                <ScalarProperty Name="date_update" ColumnName="date_update" />
+                <ScalarProperty Name="date_insert" ColumnName="date_insert" />
+                <ScalarProperty Name="user_update" ColumnName="user_update" />
+                <ScalarProperty Name="user_insert" ColumnName="user_insert" />
+                <ScalarProperty Name="sup_id" ColumnName="sup_id" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="end_date" ColumnName="end_date" />
+                <ScalarProperty Name="start_date" ColumnName="start_date" />
+                <ScalarProperty Name="warranty_year" ColumnName="warranty_year" />
+                <ScalarProperty Name="monitor_id" ColumnName="monitor_id" />
+                <ScalarProperty Name="model_id_m" ColumnName="model_id_m" />
+                <ScalarProperty Name="asset_list_m" ColumnName="asset_list_m" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RFS_EventLog">
+            <EntityTypeMapping TypeName="myDatabaseModel.RFS_EventLog">
+              <MappingFragment StoreEntitySet="RFS_EventLog">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="date" ColumnName="date" />
+                <ScalarProperty Name="event" ColumnName="event" />
+                <ScalarProperty Name="user" ColumnName="user" />
+                <ScalarProperty Name="em_id" ColumnName="em_id" />
+                <ScalarProperty Name="asset_id" ColumnName="asset_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

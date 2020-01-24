@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="b309bbf3b25d414ea1147c65039cba23" Name="Diagram1">
+        <EntityTypeShape EntityType="myDatabaseModel.RFS_Activate" Width="1.5" PointX="0.75" PointY="10" IsExpanded="true" />
+        <EntityTypeShape EntityType="myDatabaseModel.RFS_Asset" Width="1.5" PointX="3" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="myDatabaseModel.RFS_Asset_Software" Width="1.5" PointX="8.25" PointY="6.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="myDatabaseModel.RFS_Department" Width="1.5" PointX="1.5" PointY="20" IsExpanded="true" />
+        <EntityTypeShape EntityType="myDatabaseModel.RFS_Department_2" Width="1.5" PointX="0.75" PointY="12.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="myDatabaseModel.RFS_Employee" Width="1.5" PointX="0.75" PointY="15.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="myDatabaseModel.RFS_Img_Asset" Width="1.5" PointX="0.75" PointY="6.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="myDatabaseModel.RFS_Login" Width="1.5" PointX="8.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="myDatabaseModel.RFS_Model_Asset" Width="1.5" PointX="0.75" PointY="23.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="myDatabaseModel.RFS_Model_Asset_m" Width="1.5" PointX="3.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="myDatabaseModel.RFS_Software" Width="1.5" PointX="6" PointY="1.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="myDatabaseModel.RFS_Supplier" Width="1.5" PointX="3.75" PointY="11.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="myDatabaseModel.RFS_Type" Width="1.5" PointX="1.5" PointY="26.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="myDatabaseModel.RFS_Type_monitor" Width="1.5" PointX="1.5" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="myDatabaseModel.sysdiagrams" Width="1.5" PointX="8.75" PointY="9.75" IsExpanded="true" />
+        <AssociationConnector Association="myDatabaseModel.FK__RFS_Asset__Activ__1CFC3D38" ManuallyRouted="false" />
+        <AssociationConnector Association="myDatabaseModel.FK__RFS_Asset__asset__2779CBAB" ManuallyRouted="false" />
+        <AssociationConnector Association="myDatabaseModel.FK__RFS_Asset__dep_i__1EE485AA" ManuallyRouted="false" />
+        <AssociationConnector Association="myDatabaseModel.FK__RFS_Asset__em_id__1FD8A9E3" ManuallyRouted="false" />
+        <AssociationConnector Association="myDatabaseModel.FK__RFS_Asset__img_i__20CCCE1C" ManuallyRouted="false" />
+        <AssociationConnector Association="myDatabaseModel.FK__RFS_Asset__model__21C0F255" ManuallyRouted="false" />
+        <AssociationConnector Association="myDatabaseModel.FK__RFS_Asset__sup_i__22B5168E" ManuallyRouted="false" />
+        <AssociationConnector Association="myDatabaseModel.FK__RFS_Asset__softw__286DEFE4" ManuallyRouted="false" />
+        <AssociationConnector Association="myDatabaseModel.FK__RFS_Emplo__dep_i__2962141D" ManuallyRouted="false" />
+        <AssociationConnector Association="myDatabaseModel.FK__RFS_Model__type___2A563856" ManuallyRouted="false" />
+        <AssociationConnector Association="myDatabaseModel.FK__RFS_Model__type___2B4A5C8F" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="myDatabaseModel.ViewAllData" Width="1.5" PointX="11" PointY="1.375" />
+        <EntityTypeShape EntityType="myDatabaseModel.ViewSoftware" Width="1.5" PointX="11" PointY="6.25" />
+        <EntityTypeShape EntityType="myDatabaseModel.ViewAssetMonitor" Width="1.5" PointX="6.375" PointY="12.75" />
+        <EntityTypeShape EntityType="myDatabaseModel.viewModel_m" Width="1.5" PointX="11.375" PointY="9.75" />
+        <EntityTypeShape EntityType="myDatabaseModel.ViewEmployee" Width="1.5" PointX="8.375" PointY="12.75" />
+        <EntityTypeShape EntityType="myDatabaseModel.ViewModel" Width="1.5" PointX="10.375" PointY="12.75" />
+        <EntityTypeShape EntityType="myDatabaseModel.RFS_Asset_monitor" Width="1.5" PointX="6" PointY="5" />
+        <EntityTypeShape EntityType="myDatabaseModel.RFS_EventLog" Width="1.5" PointX="12.375" PointY="12.75" />
+        <AssociationConnector Association="myDatabaseModel.FK__RFS_Asset__Activ__23A93AC7" />
+        <AssociationConnector Association="myDatabaseModel.FK__RFS_Asset__asset__1DF06171" />
+        <AssociationConnector Association="myDatabaseModel.FK__RFS_Asset__img_i__249D5F00" />
+        <AssociationConnector Association="myDatabaseModel.FK__RFS_Asset__model__25918339" />
+        <AssociationConnector Association="myDatabaseModel.FK__RFS_Asset__sup_i__2685A772" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
